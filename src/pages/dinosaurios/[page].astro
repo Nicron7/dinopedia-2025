@@ -1,77 +1,83 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import dinos from "../../../dinos.json"
+import dinos from "../../../dinos.json";
+import type { Dino } from "../../../types/dino.types";
+import type { GetStaticPaths } from "astro";
+import type { Page } from "astro";
 
 import Dinocard from "../../components/Dinocard.astro";
 
-export const getStaticPaths = ({ paginate }) => {
-   return paginate(dinos, {
-      pageSize: 12
-   })
+export const getStaticPaths: GetStaticPaths = ({ paginate }) => {
+  return paginate(dinos, {
+    pageSize: 12,
+  });
 };
-const { page } = Astro.props;
-console.log(dinos, page)
+const { page } = Astro.props as { page: Page<Dino> };
+console.log(dinos, page);
 ---
 
-
 <MainLayout title="DinoPedia - Dinosaurios">
-    <section class="dinos">
-        <h2 class="dinos__title">Dinosaurios</h2>
-        <div class="dinos__grid">
-            {
-                page.data.map((dino: any) => (
-                    <Dinocard dino={dino}></Dinocard>
-                ))
-            }
-        </div>
-        <div class="dinos__flex">
-            <a href={page.url.prev} class="dinos__prev"><i class="fa-solid fa-arrow-left"></i></a>
-            <p class="dinos__pages">{page.currentPage} de {page.lastPage}</p>
-            <a href={page.url.next} class="dinos__next"><i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-    </section>
+  <section class="dinos">
+    <h2 class="dinos__title">Dinosaurios</h2>
+    <div class="dinos__grid">
+      {page.data.map((dino: Dino) => <Dinocard dino={dino} />)}
+    </div>
+    <div class="dinos__flex">
+      <a
+        href={page.url.prev}
+        class="dinos__prev"
+        ><i class="fa-solid fa-arrow-left"></i></a
+      >
+      <p class="dinos__pages">{page.currentPage} de {page.lastPage}</p>
+      <a
+        href={page.url.next}
+        class="dinos__next"
+        ><i class="fa-solid fa-arrow-right"></i></a
+      >
+    </div>
+  </section>
 </MainLayout>
 
 <style>
-    .dinos {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-        width: 100%;
-        padding-top: calc(77.92px + 2rem);
-        padding-bottom: 2rem;
-        background-color: var(--light-black);
-        border-bottom: 2px solid var(--light-grey);
-        .dinos__grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            width: 100%;
-            justify-items: center;
-            animation: fadeIn 1s ease-in-out .2s forwards;
-            opacity: 0;
-            max-width: 1600px;
-        }
-        .dinos__title {
-            color: var(--white);
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out forwards;
-            opacity: 0;
-            &:after {
-                content: '';
-                display: block;
-                width: 80px;
-                height: 4px;
-                background-color: var(--light-grey);
-                margin: 0.5rem auto;
-                border-radius: 2px;
-            }
-        }
-        /* .dinos__header {
+  .dinos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+    padding-top: calc(77.92px + 2rem);
+    padding-bottom: 2rem;
+    background-color: var(--light-black);
+    border-bottom: 2px solid var(--light-grey);
+    .dinos__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      justify-items: center;
+      animation: fadeIn 1s ease-in-out 0.2s forwards;
+      opacity: 0;
+      max-width: 1600px;
+    }
+    .dinos__title {
+      color: var(--white);
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out forwards;
+      opacity: 0;
+      &:after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background-color: var(--light-grey);
+        margin: 0.5rem auto;
+        border-radius: 2px;
+      }
+    }
+    /* .dinos__header {
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -151,26 +157,28 @@ console.log(dinos, page)
                 }
             }
         } */
-        .dinos__flex {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-top: 2rem;
-            .dinos__prev, .dinos__next {
-                color: var(--white);
-                font-size: 1.5rem;
-                transition: color 0.2s ease;
-                &:hover {
-                    color: var(--primary-color);
-                }
-            }
-            .dinos__pages {
-                color: var(--white);
-                font-size: 1.1rem;
-        }}
+    .dinos__flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+      .dinos__prev,
+      .dinos__next {
+        color: var(--white);
+        font-size: 1.5rem;
+        transition: color 0.2s ease;
+        &:hover {
+          color: var(--primary-color);
+        }
+      }
+      .dinos__pages {
+        color: var(--white);
+        font-size: 1.1rem;
+      }
     }
-    /* @media (width > 480px) {
+  }
+  /* @media (width > 480px) {
         .dinos {
             .dinos__filters {
                 flex-direction: row;
