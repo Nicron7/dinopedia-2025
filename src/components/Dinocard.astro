@@ -1,232 +1,277 @@
 ---
-const  { dino } = Astro.props
-const imageDefault = "/images/default.webp"
-let color = "card-red"
-const { nombre, tipo, periodo, longitud_aproximada, peso_aproximado, descripcion, imagen_url, image_position } = dino
+import type { Dino } from "../../types/dino.types";
+
+const { dino } = Astro.props;
+const imageDefault = "/images/default.webp";
+let color = "card-red";
+const {
+  nombre,
+  tipo,
+  periodo,
+  longitud_aproximada,
+  peso_aproximado,
+  descripcion,
+  imagen_url,
+  image_position,
+} = dino as Dino;
 
 if (periodo.includes("Jurásico")) {
-    color = "card-orange"
+  color = "card-orange";
 } else if (periodo.includes("Cretácico")) {
-    color = "card-green"
+  color = "card-green";
 }
 ---
 
-
-
-<div class={color + " card"} data-dieta={tipo} data-era={periodo}>
-    <div class="card__img__cont">
-        <img src={imagen_url || imageDefault} alt={nombre} class={image_position + " card__img"}>
+<div
+  class={color + " card"}
+  data-dieta={tipo}
+  data-era={periodo}
+>
+  <div class="card__img__cont">
+    <img
+      src={imagen_url || imageDefault}
+      alt={nombre}
+      class={image_position + " card__img"}
+    />
+  </div>
+  <div class="card__text">
+    <h3 class="card__title">{nombre}</h3>
+    <div class="card__info__cont">
+      <div class="card__info">
+        <p class="card__type"><span>Dieta:</span> {tipo}</p>
+        <p class="card__weight"><span>Peso:</span> {peso_aproximado}</p>
+        <p class="card__age"><span>Período:</span> {periodo}</p>
+        <p class="card__length"><span>Tamaño:</span> {longitud_aproximada}</p>
+      </div>
+      <div class="card__desc__cover">
+        <p class="card__desc">{descripcion}</p>
+      </div>
     </div>
-    <div class="card__text">
-        <h3 class="card__title">{nombre}</h3>
-        <div class="card__info">
-            <p class="card__type"><span>Dieta:</span> {tipo}</p>
-            <p class="card__weight"><span>Peso:</span> {peso_aproximado}</p>
-            <p class="card__age"><span>Período:</span> {periodo}</p>
-            <p class="card__length"><span>Tamaño:</span> {longitud_aproximada}</p>
-        </div>
-        <div class="card__desc__cont">
-            <p class="card__subtitle">Descripción<i class="fa-solid fa-chevron-right"></i></p>
-            <div class="card__desc__cover">
-                <p class="card__desc">{descripcion}</p>
-            </div>
-        </div>
-    </div>
+    <p class="card__subtitle">
+      Descripción<i class="fa-solid fa-chevron-right"></i>
+    </p>
+  </div>
 </div>
 
 <style>
-    .card {
-        background-color: var(--primary-hover);
-        border-radius: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: top;
-        max-width: 400px;
-    }
-    .card-red {
-        background-color: var(--secondary-hover);
-        .card__type, .card__weight, .card__age, .card__length  {
-            background-color: var(--secondary-color);
-            padding: .3rem .8rem;
-        }
-        .card__desc__cover {
-            background-color: var(--secondary-hover);
-        }
-        .card__info {
-            &::-webkit-scrollbar-track {
-                background-color: var(--secondary-color);
-            }
-        }
-    }
-    .card-orange {
-        background-color: var(--primary-hover);
-        .card__type, .card__weight, .card__age, .card__length {
-            background-color: var(--primary-color);
-            padding: .3rem .8rem;
-        }
-        .card__desc__cover {
-            background-color: var(--primary-hover);
-        }
-        .card__info {
-            &::-webkit-scrollbar-track {
-                background-color: var(--primary-color);
-            }
-        }
-    }
-    .card-green {
-        background-color: var(--dark-green);
-        .card__type, .card__weight, .card__age, .card__length {
-            background-color: var(--green);
-            padding: .3rem .8rem;
-        }
-        .card__desc__cover {
-            background-color:var(--dark-green) ;
-        }
-        .card__info {
-            &::-webkit-scrollbar-track {
-                background-color: var(--green);
-            }
-        }
-    }
-    .card__type, .card__weight, .card__age, .card__length {
-        background-color: var(--secondary-color);
-        padding: .3rem .8rem;
-    }
-    .card__subtitle {
-        display: flex;
-        gap: .5rem;
-        align-items: center;
-        cursor: pointer;
-        border: 2px solid var(--light-grey);
-        padding: .2rem 1rem;
-        width: fit-content;
-        border-radius: .5rem;
-        font-weight: 500;
-        transition: all .2s ease-in-out;
-        user-select: none;
-        i {
-            transition: all .3s ease-in-out;
-        }
-        &:hover {
-            background-color: rgba(0, 0, 0, .2);
-        }
-    }
-    .card__desc__cont {
-        overflow: hidden;
-        margin-top: 1rem;
+  .card {
+    background-color: var(--primary-hover);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    max-width: 400px;
+    width: 100%;
+  }
+  .card-red {
+    background-color: var(--secondary-hover);
+    .card__type,
+    .card__weight,
+    .card__age,
+    .card__length {
+      background-color: var(--secondary-color);
+      padding: 0.3rem 0.8rem;
     }
     .card__desc__cover {
-        transition: all .3s ease-in-out;
-        position: absolute;
-        top: calc(100% - 1rem);
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        z-index: 10;
-        padding: 0 1.5rem;
-        height: 0;
-        border-radius: 0 0 1rem 1rem;
-    }
-    .card__desc__cover--active {
-        height: auto;
-        padding-bottom: 1.5rem;
-        padding-top: 1.5rem;
-        box-shadow: 5px 10px 0 var(--light-black);
+      background-color: var(--secondary-hover);
     }
     .card__info {
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-        max-height: 158.38px;
-        overflow-y: auto;
-        padding-right: .3rem;
-        &::-webkit-scrollbar {
-            width: 8px;             
-            height: 10px;          
-        }
-        &::-webkit-scrollbar-thumb {
-            background-color: var(--light-grey);
-            border-radius: 3px;
-        }
+      &::-webkit-scrollbar-track {
+        background-color: var(--secondary-color);
+      }
     }
-    .card__subtitle--active {
-        i {
-            transform: rotate(90deg);
-        }
+  }
+  .card-orange {
+    background-color: var(--primary-hover);
+    .card__type,
+    .card__weight,
+    .card__age,
+    .card__length {
+      background-color: var(--primary-color);
+      padding: 0.3rem 0.8rem;
     }
-    .card__text {
-        padding: 1rem 1.5rem 1rem 1.5rem;
-        color: var(--white);
-        display: flex;
-        flex-direction: column;
-        gap: .5rem;
-        position: relative;
-        width: 100%;
-        span {
-            font-weight: 600;
-        }
+    .card__desc__cover {
+      background-color: var(--primary-hover);
     }
-    .card__title {
-        font-size: 1.8rem;
-        font-weight: 500;
-        &:after {
-            content: "";
-            display: block;
-            width: 15%;
-            height: 4px;
-            border-radius: 2px;
-            background-color: var(--white);
-            transition: width .5s;
-        }        
+    .card__info {
+      &::-webkit-scrollbar-track {
+        background-color: var(--primary-color);
+      }
     }
-    .card__img__cont {
-        overflow: hidden;
-        min-height: 250px;
-        max-height: 250px;
-        width: 100%;
-        border-radius: 1rem 1rem 0 0;
+  }
+  .card__info__cont {
+    display: flex;
+    overflow: hidden;
+    gap: 1rem;
+    opacity: 1;
+  }
+  .card-green {
+    background-color: var(--dark-green);
+    .card__type,
+    .card__weight,
+    .card__age,
+    .card__length {
+      background-color: var(--green);
+      padding: 0.3rem 0.8rem;
     }
+    .card__desc__cover {
+      background-color: var(--dark-green);
+    }
+    .card__info {
+      &::-webkit-scrollbar-track {
+        background-color: var(--green);
+      }
+    }
+  }
+  .card__type,
+  .card__weight,
+  .card__age,
+  .card__length {
+    background-color: var(--secondary-color);
+    padding: 0.3rem 0.8rem;
+  }
+  .card__subtitle {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border: 2px solid var(--light-grey);
+    padding: 0.2rem 1rem;
+    width: fit-content;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    user-select: none;
+    margin-top: 1rem;
+    min-width: 145.67px;
+    i {
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
 
-    .card__img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 1rem 1rem 0 0;
-        transition: transform 0.6s ease, filter 0.6s ease;
-        border-radius: 1rem 1rem 0 0;
+  .card__desc__cover {
+    transition: all 0.3s ease-in-out;
+    min-width: 100%;
+    opacity: 0;
+  }
+  .card__desc__cover--active {
+    transform: translateX(calc(-100% - 1rem));
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+  }
+  .card__info__cont--active {
+    transform: translateX(-100%);
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+  }
+  .card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 158.38px;
+    overflow-y: auto;
+    padding-right: 0.3rem;
+    min-width: 100%;
+    transition: all 0.3s ease-in-out;
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 10px;
     }
-    .card__img--left {
-        object-position: left;
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--light-grey);
+      border-radius: 3px;
     }
-    .card__img--right {
-        object-position: right;
+  }
+  .card__subtitle--active {
+    i {
+      transform: rotate(180deg);
     }
-    @media (width > 768px) {
-        .card {
-            transition: all .3s ease;
-            &:hover .card__img {
-            transform: scale(1.07);
-            filter: brightness(0.8);
-            }
-            &:hover .card__title {
-                &:after {
-                    width: 30%;
-                }
-            }
+  }
+  .card__text {
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    width: 100%;
+    span {
+      font-weight: 600;
+    }
+  }
+  .card__title {
+    font-size: 1.8rem;
+    font-weight: 500;
+    &:after {
+      content: "";
+      display: block;
+      width: 15%;
+      height: 4px;
+      border-radius: 2px;
+      background-color: var(--white);
+      transition: width 0.5s;
+    }
+  }
+  .card__img__cont {
+    overflow: hidden;
+    min-height: 250px;
+    max-height: 250px;
+    width: 100%;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    transition:
+      transform 0.6s ease,
+      filter 0.6s ease;
+    border-radius: 1rem 1rem 0 0;
+  }
+  .card__img--left {
+    object-position: left;
+  }
+  .card__img--right {
+    object-position: right;
+  }
+  @media (width > 768px) {
+    .card {
+      transition: all 0.3s ease;
+      &:hover .card__img {
+        transform: scale(1.07);
+        filter: brightness(0.8);
+      }
+      &:hover .card__title {
+        &:after {
+          width: 30%;
         }
+      }
     }
+  }
 </style>
 
 <script>
-    const subtitles = document.querySelectorAll(".card__subtitle")
-    const descs = document.querySelectorAll(".card__desc__cover")
+  const subtitles = document.querySelectorAll(".card__subtitle");
+  const info = document.querySelectorAll(".card__info");
+  const desc = document.querySelectorAll(".card__desc__cover");
 
-    subtitles.forEach((subtitle, index) => {
-        subtitle.addEventListener("click", () => {
-            descs[index].classList.toggle("card__desc__cover--active")
-            subtitles[index].classList.toggle("card__subtitle--active")
-        })
-    })
-
+  subtitles.forEach((subtitle, index) => {
+    subtitle.addEventListener("click", () => {
+      desc[index].classList.toggle("card__desc__cover--active");
+      info[index].classList.toggle("card__info__cont--active");
+      subtitles[index].classList.toggle("card__subtitle--active");
+      const text = subtitle.firstChild?.textContent?.trim() ?? "";
+      if (subtitle.firstChild) {
+        subtitle.firstChild.textContent =
+          text === "Descripción" ? "General" : "Descripción";
+      }
+    });
+  });
 </script>
