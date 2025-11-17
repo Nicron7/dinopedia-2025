@@ -12,6 +12,7 @@ export const getStaticPaths: GetStaticPaths = ({ paginate }) => {
     pageSize: 12,
   });
 };
+
 const { page } = Astro.props as { page: Page<Dino> };
 console.log(dinos, page);
 ---
@@ -25,13 +26,13 @@ console.log(dinos, page);
     <div class="dinos__flex">
       <a
         href={page.url.prev}
-        class="dinos__prev"
+        class={`dinos__prev ${page.url.prev ? "" : "disabled"}`}
         ><i class="fa-solid fa-arrow-left"></i></a
       >
       <p class="dinos__pages">{page.currentPage} de {page.lastPage}</p>
       <a
         href={page.url.next}
-        class="dinos__next"
+        class={`dinos__next ${page.url.next ? "" : "disabled"}`}
         ><i class="fa-solid fa-arrow-right"></i></a
       >
     </div>
@@ -177,6 +178,10 @@ console.log(dinos, page);
         font-size: 1.1rem;
       }
     }
+  }
+  .disabled {
+    opacity: 40%;
+    pointer-events: none;
   }
   /* @media (width > 480px) {
         .dinos {
