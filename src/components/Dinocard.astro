@@ -1,8 +1,5 @@
 ---
 import type { Dino } from "../../types/dino.types";
-import Triassic from "../../public/iconos/game-icons--dinosaur-bones.svg";
-import Jurassic from "../../public/iconos/ri--flower-fill.svg";
-import Cretaceous from "../../public/iconos/game-icons--pine-tree.svg";
 
 const { dino } = Astro.props;
 const imageDefault = "/images/default.webp";
@@ -23,18 +20,6 @@ if (periodo.includes("Jurásico")) {
 } else if (periodo.includes("Cretácico")) {
   color = "card-green";
 }
-
-// const chipText = periodo.includes("Jurásico")
-//   ? "Jurásico"
-//   : periodo.includes("Cretácico")
-//     ? "Cretácico"
-//     : "Triásico";
-
-// const chipColor = periodo.includes("Jurásico")
-//   ? "chip-orange"
-//   : periodo.includes("Cretácico")
-//     ? "chip-green"
-//     : "chip-red";
 ---
 
 <div
@@ -42,18 +27,6 @@ if (periodo.includes("Jurásico")) {
   data-dieta={tipo}
   data-era={periodo}
 >
-  <!-- <div class={`card__chip ${chipColor}`}>
-    {
-      periodo.includes("Jurásico") ? (
-        <Jurassic width={15} />
-      ) : periodo.includes("Cretácico") ? (
-        <Cretaceous width={15} />
-      ) : (
-        <Triassic width={15} />
-      )
-    }
-    <p>{chipText}</p>
-  </div> -->
   <div class="card__img__cont">
     <img
       src={imagen_url || imageDefault}
@@ -92,31 +65,6 @@ if (periodo.includes("Jurásico")) {
     width: 100%;
     position: relative;
   }
-  /* .card__chip {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    backdrop-filter: blur(2px);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    font-size: small;
-    border-top-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
-    z-index: 10;
-  }
-  .chip-orange {
-    background-color: var(--primary-color-glow);
-  }
-  .chip-green {
-    background-color: var(--green-glow);
-  }
-  .chip-red {
-    background-color: var(--secondary-color-glow);
-  } */
-
   .card-red {
     background-color: var(--secondary-hover);
     .card__type,
