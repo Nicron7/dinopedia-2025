@@ -28,7 +28,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                   name="name"
                   id="name"
                   required
-                  placeholder="Ej: Juan Pérez"
+                  placeholder="Juan Pérez"
                 />
               </div>
             </label>
@@ -43,7 +43,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                   name="email"
                   id="email"
                   required
-                  placeholder="Ej: juan@email.com"
+                  placeholder="usuario@email.com"
                 />
               </div>
             </label>
@@ -81,6 +81,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         </div>
       </div>
       <div class="contact__image-container">
+        <div class="contact__image__overlay"></div>
         <img
           class="contact__image"
           src="/contact-image.webp"
@@ -132,7 +133,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   .contact__title {
     font-size: 2rem;
-    margin-bottom: 1rem;
     color: var(--primary-color);
     text-align: center;
   }
@@ -164,6 +164,19 @@ import MainLayout from "../layouts/MainLayout.astro";
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .contact__image__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 1rem 1rem 0;
+    background: linear-gradient(
+      to right,
+      var(--light-black) 0%,
+      transparent 60%,
+      transparent 100%
+    );
   }
   .contact__success {
     top: 0;
@@ -209,6 +222,7 @@ import MainLayout from "../layouts/MainLayout.astro";
     flex: 1;
     align-self: stretch;
     display: none;
+    position: relative;
   }
 
   .contact__form label {
@@ -228,8 +242,9 @@ import MainLayout from "../layouts/MainLayout.astro";
     left: 15px;
     font-size: 1rem;
     top: 50%;
-    color: var(--primary-color);
+    color: var(--white);
     transform: translateY(-30%);
+    transition: color 0.3s ease-in-out;
   }
 
   .contact__input-icon--message {
@@ -237,8 +252,9 @@ import MainLayout from "../layouts/MainLayout.astro";
     left: 15px;
     font-size: 1rem;
     top: 20%;
-    color: var(--primary-color);
+    color: var(--white);
     transform: translateY(-30%);
+    transition: color 0.3s ease-in-out;
   }
 
   .contact__form input,
@@ -247,16 +263,16 @@ import MainLayout from "../layouts/MainLayout.astro";
     width: 100%;
     padding: 15px 15px 15px 40px;
     border-radius: 12px;
-    border: 1px solid var(--dark-grey);
-    box-shadow: 0px 2px 2px rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--dark-grey);
     transition:
       border 0.3s ease-in-out,
       background-color 0.3s ease;
     font-size: 0.95rem;
-    background-color: var(--white);
+    background-color: transparent;
     margin-top: 0.5rem;
-    color: var(--light-black);
+    color: var(--white);
     caret-color: var(--primary-color);
+    cursor: text;
   }
 
   .contact__form input::placeholder,
@@ -268,9 +284,16 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   .contact__form input:focus,
   .contact__form textarea:focus {
-    outline: 2px solid var(--primary-color);
-    background-color: var(--white);
-    color: var(--black);
+    border-color: var(--primary-color);
+  }
+
+  .contact__input-wrapper:focus-within .contact__input-icon {
+    color: var(--primary-color);
+    transition: color 0.3s ease-in-out;
+  }
+  .contact__input-wrapper:focus-within .contact__input-icon--message {
+    color: var(--primary-color);
+    transition: color 0.3s ease-in-out;
   }
 
   .contact__form textarea {
@@ -351,13 +374,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 </style>
 
 <script>
-  interface ContactForm extends HTMLFormElement {
+  type ContactForm = HTMLFormElement & {
     name: HTMLInputElement;
     email: HTMLInputElement;
     message: HTMLTextAreaElement;
-  }
+  };
 
-  const form = document.getElementById("contactForm") as HTMLFormElement;
+  const form = document.getElementById("contactForm") as ContactForm;
   const message = document.getElementById("formMessage") as HTMLTextAreaElement;
   const loadingImage = document.getElementById(
     "loadingImage"
