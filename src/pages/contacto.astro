@@ -133,7 +133,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   .contact__title {
     font-size: 2rem;
-    color: var(--primary-color);
+    color: var(--primary-accent);
     text-align: center;
   }
 
@@ -284,15 +284,15 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   .contact__form input:focus,
   .contact__form textarea:focus {
-    border-color: var(--primary-color);
+    border-color: var(--primary-accent);
   }
 
   .contact__input-wrapper:focus-within .contact__input-icon {
-    color: var(--primary-color);
+    color: var(--primary-accent);
     transition: color 0.3s ease-in-out;
   }
   .contact__input-wrapper:focus-within .contact__input-icon--message {
-    color: var(--primary-color);
+    color: var(--primary-accent);
     transition: color 0.3s ease-in-out;
   }
 
@@ -316,7 +316,6 @@ import MainLayout from "../layouts/MainLayout.astro";
   }
 
   .contact__submit-button:hover {
-    background-color: var(--primary-dark);
     transform: translateY(6px);
     box-shadow: 0 0px 0px var(--primary-dark);
   }

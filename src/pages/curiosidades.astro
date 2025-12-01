@@ -3,318 +3,309 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Curiosidades">
-    <section class="curiositiesSection">
-        <div class="curiosities">
-            <h1 class="curiosities__title">
-                Datos curiosos sobre los dinosaurios
-            </h1>
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Buscar curiosidad..."
-            />
+  <section class="curiositiesSection">
+    <div class="curiosities">
+      <h1 class="curiosities__title">Datos curiosos sobre los dinosaurios</h1>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Buscar curiosidad..."
+      />
 
-            <div class="curiosities__list" id="curiosityList">
-                <ul>
-                    <li class="curiosity__item">
-                        <span>Era Mesozoica:</span> Los dinosaurios dominaron la Tierra
-                        durante la era Mesozoica, que se dividió en tres
-                        períodos: Triásico, Jurásico y Cretácico.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Variedad de tamaños:</span> Los dinosaurios variaban
-                        enormemente en tamaño, desde el pequeño Compsognathus,
-                        que medía aproximadamente 1 metro, hasta el enorme
-                        Argentinosaurus, que podía alcanzar más de 30 metros de
-                        longitud.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>No todos eran gigantes:</span> Aunque muchos dinosaurios eran
-                        grandes, también existieron especies pequeñas y ágiles,
-                        como el Velociraptor.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Dinosaurios voladores:</span> Los pterosaurios, aunque a menudo
-                        se confunden con dinosaurios, eran reptiles voladores
-                        que coexistieron con ellos, pero no eran dinosaurios en
-                        sí.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Dinosaurios herbívoros y carnívoros:</span> Había una gran
-                        diversidad de dietas entre los dinosaurios, con algunos
-                        siendo herbívoros (como los brontosaurios) y otros
-                        carnívoros (como los tiranosaurios).
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Plumas:</span> Algunos dinosaurios, especialmente los
-                        terópodos, tenían plumas, lo que sugiere que están
-                        relacionados con las aves modernas.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Extinción masiva:</span> La mayoría de los dinosaurios se
-                        extinguieron hace aproximadamente 66 millones de años,
-                        probablemente debido a un impacto de asteroide y cambios
-                        climáticos.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Fósiles:</span> Los fósiles de dinosaurios se han encontrado en
-                        todos los continentes, lo que indica que fueron animales
-                        muy extendidos.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Caminaban en dos o cuatro patas:</span> Los dinosaurios podían
-                        ser bípedos (como el T. rex) o cuadrúpedos (como el
-                        Triceratops), dependiendo de la especie.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Cerebros pequeños</span>: A pesar de su tamaño, muchos
-                        dinosaurios tenían cerebros relativamente pequeños en
-                        comparación con su cuerpo.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Comunicación:</span> Se cree que algunos dinosaurios podían
-                        comunicarse entre sí a través de sonidos, colores y
-                        comportamientos.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Reproducción:</span> Los dinosaurios ponían huevos, y se han
-                        encontrado nidos y huevos fósiles que muestran que
-                        algunos cuidaban de sus crías.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Dinosaurios en la cultura popular:</span> Los dinosaurios han
-                        capturado la imaginación humana y han sido representados
-                        en películas, libros y juguetes, siendo "Jurassic Park"
-                        una de las franquicias más famosas.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Dinosaurios en Argentina:</span> Argentina es famosa por sus
-                        hallazgos de dinosaurios, incluyendo el Argentinosaurus
-                        y el Giganotosaurus, que son algunos de los más grandes
-                        conocidos.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Dinosaurios marinos:</span> Aunque no eran técnicamente
-                        dinosaurios, los plesiosaurios y los ictiosaurios eran
-                        reptiles marinos que vivieron durante la era de los
-                        dinosaurios.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Dinosaurios en manadas:</span> Algunas especies de dinosaurios,
-                        como los hadrosaurios, se cree que vivían y se movían en
-                        manadas.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Adaptaciones:</span> Los dinosaurios desarrollaron diversas
-                        adaptaciones para sobrevivir en sus entornos, como
-                        cuernos, crestas y armaduras.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Dinosaurios en el arte:</span> Las representaciones de
-                        dinosaurios se pueden encontrar en arte antiguo, como en
-                        las pinturas rupestres de algunas culturas.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Investigación continua:</span> La paleontología sigue
-                        descubriendo nuevas especies de dinosaurios y
-                        aprendiendo más sobre su biología y comportamiento.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Relación con las aves:</span> Los científicos consideran que
-                        las aves son los descendientes directos de ciertos
-                        grupos de dinosaurios, lo que las convierte en los
-                        únicos dinosaurios que aún existen hoy en día.
-                    </li>
-                    <li class="curiosity__item">
-                        <span>Dinosaurios en la literatura:</span> Los dinosaurios han sido
-                        protagonistas de numerosas obras literarias, desde
-                        cuentos infantiles hasta novelas científicas.
-                    </li>
-                </ul>
-            </div>
+      <div
+        class="curiosities__list"
+        id="curiosityList"
+      >
+        <ul>
+          <li class="curiosity__item">
+            <span>Era Mesozoica:</span> Los dinosaurios dominaron la Tierra durante
+            la era Mesozoica, que se dividió en tres períodos: Triásico, Jurásico
+            y Cretácico.
+          </li>
+          <li class="curiosity__item">
+            <span>Variedad de tamaños:</span> Los dinosaurios variaban enormemente
+            en tamaño, desde el pequeño Compsognathus, que medía aproximadamente
+            1 metro, hasta el enorme Argentinosaurus, que podía alcanzar más de 30
+            metros de longitud.
+          </li>
+          <li class="curiosity__item">
+            <span>No todos eran gigantes:</span> Aunque muchos dinosaurios eran grandes,
+            también existieron especies pequeñas y ágiles, como el Velociraptor.
+          </li>
+          <li class="curiosity__item">
+            <span>Dinosaurios voladores:</span> Los pterosaurios, aunque a menudo
+            se confunden con dinosaurios, eran reptiles voladores que coexistieron
+            con ellos, pero no eran dinosaurios en sí.
+          </li>
+          <li class="curiosity__item">
+            <span>Dinosaurios herbívoros y carnívoros:</span> Había una gran diversidad
+            de dietas entre los dinosaurios, con algunos siendo herbívoros (como
+            los brontosaurios) y otros carnívoros (como los tiranosaurios).
+          </li>
+          <li class="curiosity__item">
+            <span>Plumas:</span> Algunos dinosaurios, especialmente los terópodos,
+            tenían plumas, lo que sugiere que están relacionados con las aves modernas.
+          </li>
+          <li class="curiosity__item">
+            <span>Extinción masiva:</span> La mayoría de los dinosaurios se extinguieron
+            hace aproximadamente 66 millones de años, probablemente debido a un impacto
+            de asteroide y cambios climáticos.
+          </li>
+          <li class="curiosity__item">
+            <span>Fósiles:</span> Los fósiles de dinosaurios se han encontrado en
+            todos los continentes, lo que indica que fueron animales muy extendidos.
+          </li>
+          <li class="curiosity__item">
+            <span>Caminaban en dos o cuatro patas:</span> Los dinosaurios podían
+            ser bípedos (como el T. rex) o cuadrúpedos (como el Triceratops), dependiendo
+            de la especie.
+          </li>
+          <li class="curiosity__item">
+            <span>Cerebros pequeños</span>: A pesar de su tamaño, muchos
+            dinosaurios tenían cerebros relativamente pequeños en comparación
+            con su cuerpo.
+          </li>
+          <li class="curiosity__item">
+            <span>Comunicación:</span> Se cree que algunos dinosaurios podían comunicarse
+            entre sí a través de sonidos, colores y comportamientos.
+          </li>
+          <li class="curiosity__item">
+            <span>Reproducción:</span> Los dinosaurios ponían huevos, y se han encontrado
+            nidos y huevos fósiles que muestran que algunos cuidaban de sus crías.
+          </li>
+          <li class="curiosity__item">
+            <span>Dinosaurios en la cultura popular:</span> Los dinosaurios han capturado
+            la imaginación humana y han sido representados en películas, libros y
+            juguetes, siendo "Jurassic Park" una de las franquicias más famosas.
+          </li>
+          <li class="curiosity__item">
+            <span>Dinosaurios en Argentina:</span> Argentina es famosa por sus hallazgos
+            de dinosaurios, incluyendo el Argentinosaurus y el Giganotosaurus, que
+            son algunos de los más grandes conocidos.
+          </li>
+          <li class="curiosity__item">
+            <span>Dinosaurios marinos:</span> Aunque no eran técnicamente dinosaurios,
+            los plesiosaurios y los ictiosaurios eran reptiles marinos que vivieron
+            durante la era de los dinosaurios.
+          </li>
+          <li class="curiosity__item">
+            <span>Dinosaurios en manadas:</span> Algunas especies de dinosaurios,
+            como los hadrosaurios, se cree que vivían y se movían en manadas.
+          </li>
+          <li class="curiosity__item">
+            <span>Adaptaciones:</span> Los dinosaurios desarrollaron diversas adaptaciones
+            para sobrevivir en sus entornos, como cuernos, crestas y armaduras.
+          </li>
+          <li class="curiosity__item">
+            <span>Dinosaurios en el arte:</span> Las representaciones de dinosaurios
+            se pueden encontrar en arte antiguo, como en las pinturas rupestres de
+            algunas culturas.
+          </li>
+          <li class="curiosity__item">
+            <span>Investigación continua:</span> La paleontología sigue descubriendo
+            nuevas especies de dinosaurios y aprendiendo más sobre su biología y
+            comportamiento.
+          </li>
+          <li class="curiosity__item">
+            <span>Relación con las aves:</span> Los científicos consideran que las
+            aves son los descendientes directos de ciertos grupos de dinosaurios,
+            lo que las convierte en los únicos dinosaurios que aún existen hoy en
+            día.
+          </li>
+          <li class="curiosity__item">
+            <span>Dinosaurios en la literatura:</span> Los dinosaurios han sido protagonistas
+            de numerosas obras literarias, desde cuentos infantiles hasta novelas
+            científicas.
+          </li>
+        </ul>
+      </div>
 
-            <footer class="curiosities__footer">
-                <h2 class="footer__title">¿Te interesó alguna?</h2>
-                <p class="footer__desc">
-                    Explora más curiosidades usando el buscador o vuelve al
-                    inicio.
-                </p>
-                <ul class="footer__list">
-                    <li>
-                        <a href="#curiosityList"
-                            ><i class="fa-solid fa-circle-question"></i>Ver todas las curiosidades</a>
-                    </li>
-                    <li><a href="#searchInput"><i class="fa-solid fa-magnifying-glass"></i>Buscar una curiosidad</a></li>
-                    <li><a href="#"><i class="fa-solid fa-arrow-up"></i>Volver arriba</a></li>
-                </ul>
-            </footer>
-        </div>
-    </section>
+      <footer class="curiosities__footer">
+        <h2 class="footer__title">¿Te interesó alguna?</h2>
+        <p class="footer__desc">
+          Explora más curiosidades usando el buscador o vuelve al inicio.
+        </p>
+        <ul class="footer__list">
+          <li>
+            <a href="#curiosityList"
+              ><i class="fa-solid fa-circle-question"></i>Ver todas las
+              curiosidades</a
+            >
+          </li>
+          <li>
+            <a href="#searchInput"
+              ><i class="fa-solid fa-magnifying-glass"></i>Buscar una curiosidad</a
+            >
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-arrow-up"></i>Volver arriba</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </section>
 </MainLayout>
 
 <style>
-    .curiositiesSection {
-        background-color: var(--black);
-        padding-top: calc(77.92px + 2rem);
-        padding-bottom: 3rem;
-    }
+  .curiositiesSection {
+    background-color: var(--black);
+    padding-top: calc(77.92px + 2rem);
+    padding-bottom: 3rem;
+  }
 
-    .curiosities {
-        padding: 2rem;
-        max-width: 800px;
-        margin: 0 auto;
-        color: var(--black);
-        background-color: var(--light-black);
-        border-radius: 1rem;
-        position: relative;
-        z-index: 2;
-        width: 95%;
-        animation: fadeIn 1s ease-in-out;
-    }
+  .curiosities {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--black);
+    background-color: var(--light-black);
+    border-radius: 1rem;
+    position: relative;
+    z-index: 2;
+    width: 95%;
+    animation: fadeIn 1s ease-in-out;
+  }
 
-    .curiosities__title {
-        font-size: 2.5rem;
-        font-style: var(--primary-font);
-        margin-bottom: 1rem;
-        color: var(--primary-color);
-    }
+  .curiosities__title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-accent);
+  }
 
-    #searchInput {
-        width: 100%;
-        padding: 0.8rem;
-        margin-bottom: 1.5rem;
-        font-size: 1rem;
-        border-radius: 0.5rem;
-        border: 1px solid var(--dark-grey);
-        &::placeholder {
-            color: var(--dark-grey);
-        }
+  #searchInput {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--dark-grey);
+    &::placeholder {
+      color: var(--dark-grey);
     }
+  }
 
-    .curiosities__list {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        margin-top: 1.5rem;
-        position: relative;
-        z-index: 2;
-        
-    }
+  .curiosities__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 2;
+  }
 
-    .curiosities__list ul {
-        list-style: none;
-        padding-left: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        li {
-            color: var(--light-black);
-            span {
-                font-weight: bold;
-            }
-        }
-        
+  .curiosities__list ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    li {
+      color: var(--light-black);
+      span {
+        font-weight: bold;
+      }
     }
+  }
 
-    .curiosity__item {
-        position: relative;
-        padding: 1rem 1.2rem 1rem 3.5rem;
-        background-color: var(--light-grey);
-        border-radius: 0.75rem;
-        color: var(--black);
-        font-size: 1.1rem;
-        line-height: 1.6;
-        transition:
-            background-color 0.3s ease,
-            transform 0.2s ease,
-            box-shadow 0.3s ease;
-    }
+  .curiosity__item {
+    position: relative;
+    padding: 1rem 1.2rem 1rem 3.5rem;
+    background-color: var(--light-grey);
+    border-radius: 0.75rem;
+    color: var(--black);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    transition:
+      background-color 0.3s ease,
+      transform 0.2s ease,
+      box-shadow 0.3s ease;
+  }
 
-    .curiosity__item::before {
-        content: "";
-        position: absolute;
-        left: 1rem;
-        top: 1rem;
-        width: 2rem;
-        height: 2rem;
-        background-image: url("/pensar.png");
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+  .curiosity__item::before {
+    content: "";
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    width: 2rem;
+    height: 2rem;
+    background-image: url("/pensar.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
-    .curiosity__item:hover {
-        background-color: var(--primary-hover);
-        color: var(--white);
-        transform: translateY(-2px);
-        box-shadow: 0 0px 10px var(--primary-color);
-    }
+  .curiosity__item:hover {
+    background-color: var(--primary-hover);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 0px 10px var(--primary-color);
+  }
 
-    .curiosities__footer {
-        margin-top: 3rem;
-        padding: 2rem;
-        border-top: 2px solid var(--primary-color);
-        background-color: var(--primary-hover);
-        text-align: center;
-        border-radius: 1rem;
-        color: var(--black);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .curiosities__footer {
+    margin-top: 3rem;
+    padding: 2rem;
+    border-top: 2px solid var(--primary-color);
+    background-color: var(--primary-hover);
+    text-align: center;
+    border-radius: 1rem;
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .footer__title {
-        font-size: 1.5rem;
-        color: var(--white);
-        margin-bottom: 0.5rem;
-    }
+  .footer__title {
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
 
-    .footer__desc {
-        color: var(--light-grey);
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
+  .footer__desc {
+    color: var(--light-grey);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 
-    .footer__list {
-        list-style: none;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
+  .footer__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-    .footer__list a {
-        color: var(--white);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        justify-content: center;
-        font-weight: 500;
-        width: fit-content;
-        transition: all 0.3s ease;
-        background-color: var(--primary-color);
-        border-radius: 0.5rem;
-        padding: .5rem 1rem;
-        margin: 0 auto;
-        box-shadow: 0 4px 0px var(--primary-dark);
-    }
+  .footer__list a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    font-weight: 500;
+    width: fit-content;
+    transition: all 0.3s ease;
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    box-shadow: 0 4px 0px var(--primary-dark);
+  }
 
-    .footer__list a:hover {
-        transform: translateY(4px);
-        box-shadow: 0 0px 0px var(--primary-dark);
-    }
+  .footer__list a:hover {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0px var(--primary-dark);
+  }
 </style>
 
 <script>
-    const input = document.querySelector<HTMLInputElement>("#searchInput")!;
-    const items = document.querySelectorAll<HTMLElement>(".curiosity__item")!;
+  const input = document.querySelector<HTMLInputElement>("#searchInput")!;
+  const items = document.querySelectorAll<HTMLElement>(".curiosity__item")!;
 
-    input.addEventListener("input", () => {
-        const query = input.value.toLowerCase();
-        items.forEach((item) => {
-            item.style.display = item.textContent.toLowerCase().includes(query)
-                ? "block"
-                : "none";
-        });
+  input.addEventListener("input", () => {
+    const query = input.value.toLowerCase();
+    items.forEach((item) => {
+      item.style.display = item.textContent.toLowerCase().includes(query)
+        ? "block"
+        : "none";
     });
+  });
 </script>
