@@ -1,26 +1,35 @@
 ---
 import FeatureCard from "./FeatureCard.astro";
-const cards = [
+
+export interface FeatureCardProps {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const cards: FeatureCardProps[] = [
   {
     title: "Diversidad de tamaños",
-    description: "desde menos de 1 metro hasta más de 30 metros de largo",
+    description:
+      "Algunos eran pequeños y medían menos de 1 metro, mientras que otros superaban los 30 metros. Esta variedad les permitió ocupar distintos ambientes y roles dentro de sus ecosistemas.",
     image: "/tamaños.png",
   },
   {
     title: "Tipos de alimentación",
-    description: "herbívoros, carnívoros, omnívoros.",
+    description:
+      "Había dinosaurios herbívoros que se alimentaban de plantas, carnívoros especializados en la caza y omnívoros que combinaban distintos recursos. Esta diversidad de dietas ayudó a que convivieran muchas especies diferentes.",
     image: "/alimentacion.png",
   },
   {
     title: "Postura erguida",
     description:
-      "a diferencia de otros reptiles, sus patas estaban colocadas debajo del cuerpo, permitiéndoles mejor movilidad.",
+      "A diferencia de los reptiles actuales, muchos dinosaurios tenían las patas ubicadas debajo del cuerpo. Esta postura erguida les daba mayor estabilidad y les permitía moverse de forma más eficiente.",
     image: "/erguido.png",
   },
   {
     title: "Velocidad",
     description:
-      "muchos de los dinosaurios eran veloces, con velocidades de hasta 80 km/h.",
+      "Algunas especies eran sorprendentemente rápidas gracias a sus extremidades fuertes y cuerpos livianos. Se estima que ciertos dinosaurios podían alcanzar velocidades cercanas a los 80 km/h.",
     image: "/veloz.png",
   },
 ];
@@ -114,6 +123,7 @@ const cards = [
         background-color: var(--light-black);
         border-radius: 1rem;
         max-width: 600px;
+        margin: 0 auto;
       }
       .about__text {
         padding: 1.5rem;
@@ -211,7 +221,6 @@ const cards = [
         margin: 0 auto;
         max-width: 40ch;
         display: grid;
-        grid-template-columns: 1fr;
         gap: 1rem;
         justify-items: center;
       }
@@ -271,10 +280,6 @@ const cards = [
         .features__title {
           font-size: 3rem;
         }
-        .features__list {
-          max-width: 60ch;
-          grid-template-columns: repeat(2, 1fr);
-        }
       }
     }
   }
@@ -316,7 +321,7 @@ const cards = [
       .features__section {
         margin-top: 5rem;
         .features__list {
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
           max-width: 100%;
         }
         .features__title {
