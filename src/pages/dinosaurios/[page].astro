@@ -1,12 +1,11 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import dinos from "../../../dinos.json";
-import type { Dino } from "../../../types/dino.types";
+import type { Dino } from "@/types/dino.types";
 import type { GetStaticPaths } from "astro";
 import type { Page } from "astro";
 
-import Dinocard from "../../components/Dinocard.astro";
-
+import Dinocard from "@/components/cards/Dinocard.astro";
 export const getStaticPaths: GetStaticPaths = ({ paginate }) => {
   return paginate(dinos, {
     pageSize: 12,
