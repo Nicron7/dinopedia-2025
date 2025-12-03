@@ -1,0 +1,63 @@
+---
+import type { FeatureCardProps } from "../Main.astro";
+
+const { title, description, image } = Astro.props as FeatureCardProps;
+---
+
+<li class="features__item">
+  <img
+    src={image}
+    alt={title}
+    class="features__img"
+  />
+  <h3>{title}</h3>
+  <p>{description}</p>
+</li>
+
+<style>
+  .features__item {
+    font-size: 1rem;
+    color: var(--light-grey);
+    margin-bottom: 0.5rem;
+    text-align: left;
+    line-height: 1.5;
+    background: linear-gradient(
+      to bottom,
+      var(--secondary-color) 0%,
+      var(--secondary-hover) 60%
+    );
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    max-width: 330px;
+    h3 {
+      color: var(--white);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .features__img {
+      display: block;
+      max-width: 230px;
+      width: 100%;
+      margin: 0 auto;
+      transition: all 0.3s ease;
+    }
+  }
+  @media (width > 480px) {
+    .features__item {
+      max-width: unset;
+    }
+  }
+  @media (width > 768px) {
+    .features__item {
+      transition: all 0.3s ease;
+      &:hover {
+        transform: translateY(-10px);
+        background-color: var(--secondary-hover);
+      }
+    }
+    .features__item:hover .features__img {
+      transform: scale(1.05);
+      transform: rotate(-5deg);
+    }
+  }
+</style>
