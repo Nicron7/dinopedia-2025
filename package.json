@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint \"src/**/*.{js,ts,astro}\""
   },
   "dependencies": {
     "astro": "^5.8.0",
@@ -14,9 +15,14 @@
     "sharp": "^0.34.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@typescript-eslint/parser": "^8.48.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-astro": "^1.5.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
     "imagemin-svgo": "^11.0.1",
-    "imagemin-webp": "^8.0.0"
+    "imagemin-webp": "^8.0.0",
+    "typescript-eslint": "^8.48.1"
   }
 }
