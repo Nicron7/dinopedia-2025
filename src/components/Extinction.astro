@@ -1,3 +1,40 @@
+---
+import type { ExtinctionCardProps } from "./cards/ExtinctionCard.astro";
+import ExtinctionCard from "./cards/ExtinctionCard.astro";
+
+const cards: ExtinctionCardProps[] = [
+  {
+    title: "Impacto de asteroide",
+    list: [
+      "Un asteroide de unos 10 km de diámetro chocó en la actual Península de Yucatán (México).",
+      "El cráter resultante, llamado Chicxulub, tiene más de 180 km de ancho.",
+      "Liberó una energía equivalente a millones de bombas nucleares.",
+    ],
+    image: "/extinction-slide-1.webp",
+    icon: "fa-meteor",
+  },
+  {
+    title: "Actividad volcánica masiva",
+    list: [
+      "Las erupciones en la región del Decán (India) liberaron gases tóxicos a la atmósfera.",
+      "Esto contribuyó a un cambio climático extremo, con enfriamientos y lluvias ácidas.",
+    ],
+    image: "/extinction-slide-2.webp",
+    icon: "fa-volcano",
+  },
+  {
+    title: "Efectos globales",
+    list: [
+      "Oscurecimiento del cielo: ceniza y polvo bloquearon la luz solar.",
+      "Colapso de las cadenas alimenticias: plantas murieron, y con ellas los herbívoros y luego los carnívoros.",
+      "Cambios en la atmósfera: aumento de gases como el dióxido de azufre y el CO₂.",
+    ],
+    image: "/extinction-slide-3.webp",
+    icon: "fa-cloud",
+  },
+];
+---
+
 <section class="extinction">
   <div class="extinction__cont">
     <h2 class="extinction__title">La extinción de los dinosaurios</h2>
@@ -11,88 +48,16 @@
     <div class="extinction__main">
       <div class="extinction__grid__cont">
         <div class="extinction__grid">
-          <article class="extinction__grid__item">
-            <div class="extinction__grid__text">
-              <h4 class="extinction__grid__subtitle">
-                <i class="fa-solid fa-meteor"></i>Impacto de asteroide
-              </h4>
-              <ul class="extinction__grid__list">
-                <li>
-                  Un asteroide de unos 10 km de diámetro chocó en la actual <span
-                    >Península de Yucatán (México)</span
-                  >.
-                </li>
-                <li>
-                  El cráter resultante, llamado <span>Chicxulub</span>, tiene
-                  más de 180 km de ancho.
-                </li>
-                <li>
-                  Liberó una energía equivalente a <span
-                    >millones de bombas nucleares</span
-                  >.
-                </li>
-              </ul>
-            </div>
-            <div class="extinction__grid__img">
-              <img
-                src="/extinction-slide-1.webp"
-                alt="asteroide impactando en la tierra"
+          {
+            cards.map((card) => (
+              <ExtinctionCard
+                title={card.title}
+                list={card.list}
+                image={card.image}
+                icon={card.icon}
               />
-            </div>
-          </article>
-          <!-- Extinction Card -->
-          <article class="extinction__grid__item">
-            <div class="extinction__grid__text">
-              <h4 class="extinction__grid__subtitle">
-                <i class="fa-solid fa-volcano"></i>Actividad volcánica masiva
-              </h4>
-              <ul class="extinction__grid__list">
-                <li>
-                  Las <span>erupciones en la región del Decán (India)</span> liberaron
-                  gases tóxicos a la atmósfera.
-                </li>
-                <li>
-                  Esto contribuyó a un cambio climático extremo, con
-                  enfriamientos y lluvias ácidas.
-                </li>
-              </ul>
-            </div>
-            <div class="extinction__grid__img">
-              <img
-                src="/extinction-slide-2.webp"
-                alt="volcan"
-              />
-            </div>
-          </article>
-          <!-- Extinction Card -->
-          <article class="extinction__grid__item">
-            <div class="extinction__grid__text">
-              <h4 class="extinction__grid__subtitle">
-                <i class="fa-solid fa-cloud"></i>Efectos globales
-              </h4>
-              <ul class="extinction__grid__list">
-                <li>
-                  <span>Oscurecimiento del cielo:</span> ceniza y polvo bloquearon
-                  la luz solar.
-                </li>
-                <li>
-                  <span>Colapso de las cadenas alimenticias:</span> plantas murieron,
-                  y con ellas los herbívoros y luego los carnívoros.
-                </li>
-                <li>
-                  <span>Cambios en la atmósfera:</span> aumento de gases como el
-                  dióxido de azufre y el CO₂.
-                </li>
-              </ul>
-            </div>
-            <div class="extinction__grid__img">
-              <img
-                src="/extinction-slide-3.webp"
-                alt="efectos globales"
-              />
-            </div>
-          </article>
-          <!-- Extinction Card -->
+            ))
+          }
         </div>
       </div>
       <div class="extinction__grid__prev">
@@ -251,53 +216,6 @@
         align-items: center;
         margin-bottom: 2rem;
       }
-      .extinction__grid__item {
-        text-align: left;
-        min-width: 100%;
-        display: flex;
-        flex-direction: column-reverse;
-        background-color: var(--secondary-hover);
-        border-radius: 1rem;
-        align-self: stretch;
-        border: 4px solid var(--light-grey);
-        .extinction__grid__img {
-          width: 100%;
-          height: 100%;
-          min-height: 260px;
-          border-bottom: 4px solid var(--light-grey);
-          img {
-            border-radius: 1rem 1rem 0 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-        h4 {
-          font-size: 1.5rem;
-          color: var(--white);
-          margin-bottom: 1rem;
-          font-weight: 500;
-          display: flex;
-          gap: 1rem;
-          align-items: center;
-        }
-        .extinction__grid__list {
-          color: var(--light-grey);
-          line-height: 1.6;
-          font-size: 1rem;
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          width: 100%;
-          list-style: disc;
-          padding-left: 1.5rem;
-
-          span {
-            color: var(--white);
-            font-weight: bold;
-          }
-        }
-      }
     }
     .extinction__footer {
       width: 100%;
@@ -388,29 +306,6 @@
         .extinction__grid__prev,
         .extinction__grid__next {
           display: flex;
-        }
-        .extinction__grid__item {
-          flex-direction: row;
-          max-width: 300px;
-          height: 450px;
-          align-items: center;
-          h4 {
-            font-size: 2rem;
-          }
-          .extinction__grid__text {
-            padding: 2rem;
-          }
-
-          .extinction__grid__img {
-            height: 100%;
-            border-radius: 0 1rem 1rem 0;
-            border-left: 4px solid var(--light-grey);
-            border-bottom: unset;
-            img {
-              border-radius: 0 1rem 1rem 0;
-              height: 100%;
-            }
-          }
         }
         .extinction__grid__cont {
           width: 95%;
